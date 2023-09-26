@@ -14,6 +14,5 @@
             </div>
         </div>
     </div>
-
     @vite(['resources/js/calendar.js'])
 </x-app-layout>
