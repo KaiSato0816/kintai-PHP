@@ -22,7 +22,9 @@
                         <body>
                             <h1>日報登録</h1>
                             
-                            <form action="calendar.php" method="post">
+                            <form action="{{ route('report.create') }}" method="post">
+                                <input type='hidden' name='user_id' value="{{Auth::user()->id}}">
+                            @csrf
                                 <label for="date">日付:</label>
                                 <input type="date" id="date" name="date" required><br><br>
 

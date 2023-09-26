@@ -5,24 +5,30 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Report;
+use App\Models\Report;
 
 class ReportController extends Controller
 {
-    public function create()
+    public function create(Request $request)
     {
-        return view('report');
-    }
-
-    public function store(Request $request)
-    {
-        $data = $request->validate([
+        $request->validate([
+            'user_id' => 'required',
+            'date' => 'required',
+            'title' => 'required',
             'content' => 'required',
         ]);
 
-        Report::create($data);
+        Report::create(
+            [   
+                'user_id' => $request->user_id,
+                'date' => $request->date,
+                'title' => $request->title,
+                'content' => $request->content,
+            ]
+        );
 
-        return redirect('/report')->with('success', '日報が登録されました。');
+
+        return redirect('/dashboard')->with('success', '日報が登録されました。');
     }
 }
 

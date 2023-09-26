@@ -13,14 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('attendance_records', function (Blueprint $table) {
+        Schema::create('reports', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('user_id')->unsigned()->nullable(false);
-            $table->datetime('start_at')->nullable();
-            $table->datetime('end_at')->nullable();
-            $table->tinyInteger('reason')->nullable();
+            $table->foreignId('user_id');
+            $table->date('date')->nullable();
+            $table->text('title')->nullable();
+            $table->text('content')->nullable();
             $table->timestamps();
-            $table->tinyInteger('delete_flag')->default(0);
         });
     }
 
@@ -31,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('reports');
     }
 };

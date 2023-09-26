@@ -13,11 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('table_name', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->bigInteger('user_id')->unsigned();
-            $table->text('content')->nullable();
+        Schema::create('times', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('user_id');
+            $table->datetime('start_at')->nullable();
+            $table->datetime('end_at')->nullable();
+            $table->tinyInteger('reason')->nullable();
             $table->timestamps();
+            $table->tinyInteger('delete_flag')->default(0);
         });
     }
 
@@ -28,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('times');
     }
 };
