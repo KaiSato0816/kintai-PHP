@@ -3,7 +3,9 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReportController;
+use App\Http\Controllers\CalendarController;
 
+Route::get('/calendar', [CalendarController::class, 'index'])->name('calendar.index');
 Route::get('/report', [ReportController::class, 'create']);
 Route::post('/report', [ReportController::class, 'store']);
 
