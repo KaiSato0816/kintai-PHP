@@ -2,6 +2,10 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ReportController;
+
+Route::get('/report', [ReportController::class, 'create']);
+Route::post('/report', [ReportController::class, 'store']);
 
 /*
 |--------------------------------------------------------------------------
