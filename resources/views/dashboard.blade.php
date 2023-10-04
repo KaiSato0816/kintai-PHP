@@ -20,6 +20,19 @@
                             </style>
                         </head> -->
                         <body>
+                            <!-- 出勤ボタン -->
+                            @isset ($error)
+                            <p>{{$error}}</p>
+                            @endisset
+
+                            @isset ($success)
+                            <p>{{$success}}</p>
+                            @endisset
+                            
+                                <button type="button" onclick="location.href='{{ route('Attendance.recordAttendance') }}'" method="POST">出勤</button>
+                            <!-- 退勤ボタン -->
+                                <button type="button" onclick="location.href='{{ route('Attendance.recordLeave') }}'" method="POST">退勤</button>                        
+
                             <h1>日報登録</h1>
                             
                             <form action="{{ route('report.create') }}" method="post">

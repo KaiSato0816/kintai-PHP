@@ -4,7 +4,12 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\CalendarController;
+use App\Http\Controllers\AttendanceController;
 
+Route::get('/dashboard/recordAttendance', [AttendanceController::class, 'recordAttendance'])->name('Attendance.recordAttendance');
+Route::put('/dashboard/recordAttendance', [AttendanceController::class, 'recordAttendance'])->name('Attendance.recordAttendance');
+Route::get('/record-leave', [AttendanceController::class, 'recordLeave'])->name('Attendance.recordLeave');
+Route::put('/record-leave', [AttendanceController::class, 'recordLeave'])->name('Attendance.recordLeave');
 Route::get('/calendar', [CalendarController::class, 'index'])->name('calendar.index');
 Route::get('/report', [ReportController::class, 'create']);
 Route::post('/report', [ReportController::class, 'store']);

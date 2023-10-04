@@ -19,8 +19,9 @@ return new class extends Migration
             $table->datetime('start_at')->nullable();
             $table->datetime('end_at')->nullable();
             $table->tinyInteger('reason')->nullable();
-            $table->timestamps();
+            $table->tinyInteger('attendance_status')->default(0);
             $table->tinyInteger('delete_flag')->default(0);
+            $table->timestamps();
         });
     }
 
