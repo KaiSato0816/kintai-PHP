@@ -13,6 +13,8 @@ Route::put('/record-leave', [AttendanceController::class, 'recordLeave'])->name(
 Route::get('/calendar', [CalendarController::class, 'index'])->name('calendar.index');
 Route::get('/report', [ReportController::class, 'create']);
 Route::post('/report', [ReportController::class, 'store']);
+Route::get('/users', 'UserController@index');
+Route::get('/users', 'App\Http\Controllers\UserController@index');
 
 /*
 |--------------------------------------------------------------------------
