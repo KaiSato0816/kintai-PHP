@@ -9,6 +9,16 @@
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <div>
+                        <!-- <!DOCTYPE html> -->
+                        <!-- <html lang="ja">
+                        <head>
+                            <meta charset="UTF-8">
+                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                            <title>日報登録</title>
+                            <style>
+                                /* スタイルを追加する場合はここに記述 */
+                            </style>
+                        </head> -->
                         <body>
                             <!-- 出勤ボタン -->
                             @isset ($error)
@@ -31,7 +41,7 @@
                                     </select>
                                 </form>
 
-                            <h1>日報登録</h1>
+                            <h1>日報登録aaaaaaaaaaaaaaaaaaa</h1>
                             
                             <form action="{{ route('report.create') }}" method="post">
                                 <input type='hidden' name='user_id' value="{{Auth::user()->id}}">

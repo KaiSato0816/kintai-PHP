@@ -10,11 +10,11 @@ use Carbon\Carbon;
 
 class AttendanceController extends Controller
 {
-    public function recordAttendance()
+    public function recordAttendance(Request $request)
     {
+        $attendanceReason = $request->input('attendance_reason');
         $userId = Auth::id();
         $currentDateTime = now();
-
         $newest_record = Time::where('user_id', $userId)
                             ->orderBy('created_at', 'desc')
                             ->first();
@@ -31,13 +31,10 @@ class AttendanceController extends Controller
         if ($newest_record->end_at === null) {
             return view('dashboard')->with('error', '出勤済みです。');
         }
+        Time::insert([
+            'reason' => $attendanceReason,
+        ]);
     }
-        
-        // 出勤ボタンを押すと、セッションに出勤状態を設定
-        //↑代わりにDBのコードを書く
-        // その後の処理を追加
-        // ...
-
 
     public function recordLeave()
     {
