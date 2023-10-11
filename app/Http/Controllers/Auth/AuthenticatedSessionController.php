@@ -9,6 +9,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
+use App\Models\User;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -29,7 +30,20 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+        $admin = User::select('admin')->where([
+            'email'=>$request->email,
+            'password'=>$request->password
+        ]);
+
+
+        
+
+        if($admin === 0){
+            return redirect()->intended(RouteServiceProvider::HOME);    
+        }else{
+            return redirect()->intended(RouteServiceProvider::ADMIN_HOME);
+        }
+        
     }
 
     /**

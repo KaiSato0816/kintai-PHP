@@ -5,7 +5,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\AttendanceController;
+use App\Http\Controllers\AdminController;
 
+Route::get('/admin_dashboard', [AdminController::class, 'index'])->name('Admin.index');
 Route::get('/dashboard/recordAttendance', [AttendanceController::class, 'recordAttendance'])->name('Attendance.recordAttendance');
 Route::put('/dashboard/recordAttendance', [AttendanceController::class, 'recordAttendance'])->name('Attendance.recordAttendance');
 Route::get('/record-leave', [AttendanceController::class, 'recordLeave'])->name('Attendance.recordLeave');
@@ -13,9 +15,8 @@ Route::put('/record-leave', [AttendanceController::class, 'recordLeave'])->name(
 Route::get('/calendar', [CalendarController::class, 'index'])->name('calendar.index');
 Route::get('/report', [ReportController::class, 'create']);
 Route::post('/report', [ReportController::class, 'store']);
-Route::get('/users', 'UserController@index');
-Route::get('/users', 'App\Http\Controllers\UserController@index');
-
+Route::get('/admin/edit/{id}', [AdminController::class, 'edit'])->name('admin.edit');
+Route::get('/users', [UserController::class, 'index']);
 /*
 |--------------------------------------------------------------------------
 | Web Routes

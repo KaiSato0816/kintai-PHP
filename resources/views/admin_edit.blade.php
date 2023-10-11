@@ -9,17 +9,6 @@
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <div>
-                        <!-- <!DOCTYPE html> -->
-                        <!-- <html lang="ja">
-                        <head>
-                            <meta charset="UTF-8">
-                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                            <title>日報登録</title>
-                            <style>
-                                /* スタイルを追加する場合はここに記述 */
-                            </style>
-                        </head> -->
-                        <body>
                             <!-- 出勤ボタン -->
                             @isset ($error)
                             <p>{{$error}}</p>
@@ -56,8 +45,6 @@
                                 <textarea id="content" name="content" rows="4" cols="50" required></textarea><br><br>
                                 <input type="submit" value="登録">
                             </form>
-                        </body>
-                        <!-- </html> -->
                     </div>
                 </div>
             </div>
