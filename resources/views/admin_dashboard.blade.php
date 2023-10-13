@@ -1,7 +1,10 @@
+<link rel="stylesheet" type="text/css" href="{{ asset('css/syles.css') }}">
+
+
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Admin_Dashboard') }}
+            {{ __('管理者専用画面') }}
         </h2>
     </x-slot>
     <div class="py-12">
@@ -11,17 +14,18 @@
                     <table>
                         <thead>
                             <tr>
-                                <th>Name</th>
-                                <th>Email</th>
+                                <th class="test">Name</th>
+                                <th class="test">Email</th>
+                                <th class="test">edit</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($users as $user)
                                 <tr>
-                                    <td>{{ $user->name }}</td>
-                                    <td>{{ $user->email }}</td>
-                                    <td>
-                                        <a href="{{ route('admin.edit', ['id' => $user->id]) }}" class="btn btn-primary">編集</a>
+                                    <td class="test">{{ $user->name }}</td>
+                                    <td class="test">{{ $user->email }}</td>
+                                    <td class="edit_botton">
+                                        <a href="{{ route('admin.edit', ['id' => $user->id]) }}" class="btn btn-primary">編集する</a>
                                     </td>
                                 </tr>
                             @endforeach
