@@ -17,3 +17,26 @@
     border: 1px solid #ccc;
 
 }
+.bottons{
+    display: flex;
+}
+.botton1{
+    padding-right: 60px;
+    color: black;
+    font-size: 40px;
+    padding-bottom: 60px;
+}
+
+#botton_font{
+    background-color: red;
+}
+.text_color{
+    color: black;
+    font-weight: bold;
+}
+.text_color2{
+    color: white;
+}
+#dayly_title{
+    font-size: 40px;
+}
