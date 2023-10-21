@@ -27,6 +27,9 @@
                                     <td class="edit_botton">
                                         <a href="{{ route('admin.edit', ['id' => $user->id]) }}" class="btn btn-primary">編集する</a>
                                     </td>
+                                    <td>
+                                        <a href="/admin/csv-download">CSVダウンロード</a>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
