@@ -3,7 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReportController;
-use App\Http\Controllers\CalendarController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\AdminController;
 
@@ -12,11 +12,10 @@ Route::get('/dashboard/recordAttendance', [AttendanceController::class, 'recordA
 Route::put('/dashboard/recordAttendance', [AttendanceController::class, 'recordAttendance'])->name('Attendance.recordAttendance');
 Route::get('/record-leave', [AttendanceController::class, 'recordLeave'])->name('Attendance.recordLeave');
 Route::put('/record-leave', [AttendanceController::class, 'recordLeave'])->name('Attendance.recordLeave');
-Route::get('/calendar', [CalendarController::class, 'index'])->name('calendar.index');
 Route::get('/report', [ReportController::class, 'create']);
 Route::post('/report', [ReportController::class, 'store']);
 Route::get('/admin/edit/{id}', [AdminController::class, 'edit'])->name('admin.edit');
-Route::get('/users', [UserController::class, 'index']);
+Route::get('/index', [UserController::class, 'index']);
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,9 +26,6 @@ Route::get('/users', [UserController::class, 'index']);
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/calendar', function () {
-    return view('calendar');
-});
 
 Route::get('/', function () {
     return view('welcome');

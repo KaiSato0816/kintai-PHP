@@ -1,6 +1,8 @@
 import { Calendar } from "@fullcalendar/core";
 import dayGridPlugin from "@fullcalendar/daygrid";
 
+document.addEventListener('DOMContentLoaded', function() {
+
 var calendarEl = document.getElementById("calendar");
 
 let calendar = new Calendar(calendarEl, {
@@ -11,5 +13,7 @@ let calendar = new Calendar(calendarEl, {
         center: "title",
         right: "",
     },
+    events: "/index"
 });
 calendar.render();
+});
