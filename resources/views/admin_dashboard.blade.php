@@ -17,6 +17,7 @@
                                 <th class="test">Name</th>
                                 <th class="test">Email</th>
                                 <th class="test">edit</th>
+                                <th class="test">CSV_DL</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -27,7 +28,7 @@
                                     <td class="edit_botton">
                                         <a href="{{ route('admin.edit', ['id' => $user->id]) }}" class="btn btn-primary">編集する</a>
                                     </td>
-                                    <td>
+                                    <td class="edit_botton">
                                         <a href="/admin/csv-download">CSVダウンロード</a>
                                     </td>
                                 </tr>
