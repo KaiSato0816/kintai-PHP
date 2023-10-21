@@ -9,14 +9,15 @@ use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class CsvDownloadController extends Controller
 {
-    public function downloadCsv()
+    public function downloadCsv($id)
     {
         //$users = User::select('name', 'email')->get();
         //$times = Time::select('start_at', 'end_at')->get();
 
-
+        $user_id = 
         $attendanceInfomation = User::join('times', 'users.id', '=', 'times.user_id')
             ->select( 'users.name','users.email', 'times.start_at', 'times.end_at' )
+            ->where('user_id', $id)
             ->get();
 
 

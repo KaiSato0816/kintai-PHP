@@ -8,7 +8,8 @@ use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CsvDownloadController;
 
-Route::get('/admin/csv-download', [CsvDownloadController::class, 'downloadCsv']);
+// Route::get('/admin/csv-download', [CsvDownloadController::class, 'downloadCsv']);
+Route::get('/admin/csv-download/{id}', [CsvDownloadController::class, 'downloadCsv'])->name('downloadCsv');
 Route::get('/admin_dashboard', [AdminController::class, 'index'])->name('Admin.index');
 Route::get('/dashboard/recordAttendance', [AttendanceController::class, 'recordAttendance'])->name('Attendance.recordAttendance');
 Route::put('/dashboard/recordAttendance', [AttendanceController::class, 'recordAttendance'])->name('Attendance.recordAttendance');
