@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 
+
 class AdminController extends Controller
 {
     public function index()
@@ -15,8 +16,8 @@ class AdminController extends Controller
 
     public function edit($id){
 
-        $user = User::find($id);
-        return view('admin_edit', compact('user'));
+        $time = User::find($id);
+        return view('admin_edit', compact('time'));
 
     }
 }
