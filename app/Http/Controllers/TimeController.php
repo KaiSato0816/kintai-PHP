@@ -17,8 +17,7 @@ public function edit($user_id)
     //$time = Time::find($user_id); // $id は編集したいデータのIDです
     $times = Time::where('user_id', $user_id)->get();
 
-    dd($times);
-    return view('edit', compact('time'));
+    return view('edit', compact('times'));
 }
 
 public function update(Request $request, $id)
