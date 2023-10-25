@@ -62,7 +62,7 @@
                                         </div>
                                     </div>
                                     <input type="submit" value="登録">
-                                    <a href="{{ route('edit.time', $time->id) }}" class="btn btn-primary">編集</a>
+                                    <a href="{{ route('time.edit', $user->id) }}" class="btn btn-primary">編集</a>
 
                                 </form>
                                 

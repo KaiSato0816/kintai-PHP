@@ -3,19 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Time;
+use App\Models\Time;
 
 class TimeController extends Controller
 {
    // TimeController.php
 
-public function edit($id)
+public function edit($user_id)
 {
     // $time = Time::find($id);
     // return view('admin.edit', compact('time'));
     // 例: 特定のデータを取得する方法
-    $time = Time::find($id); // $id は編集したいデータのIDです
-    return view('admin_edit', compact('time'));
+    //$time = Time::find($user_id); // $id は編集したいデータのIDです
+    $times = Time::where('user_id', $user_id)->get();
+
+    dd($times);
+    return view('edit', compact('time'));
 }
 
 public function update(Request $request, $id)

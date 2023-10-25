@@ -10,12 +10,8 @@ use App\Http\Controllers\CsvDownloadController;
 use App\Http\Controllers\TimeController;
 
 
-Route::get('/edit/{id}', [TimeController::class, 'edit'])->name('edit.time');
-// Route::get('/edit/{id}', 'TimeController@edit')->name('edit.time');
+Route::get('/edit/{id}', [TimeController::class, 'edit'])->name('time.edit');
 Route::get('/update/{id}', [TimeController::class, 'update'])->name('update.time');
-// Route::put('/update/{id}', 'TimeController@update')->name('update.time');
-
-// Route::get('/admin/csv-download', [CsvDownloadController::class, 'downloadCsv']);
 Route::get('/admin/csv-download/{id}', [CsvDownloadController::class, 'downloadCsv'])->name('downloadCsv');
 Route::get('/admin_dashboard', [AdminController::class, 'index'])->name('Admin.index');
 Route::get('/dashboard/recordAttendance', [AttendanceController::class, 'recordAttendance'])->name('Attendance.recordAttendance');
