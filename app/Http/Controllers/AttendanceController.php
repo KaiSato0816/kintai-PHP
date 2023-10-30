@@ -12,28 +12,25 @@ class AttendanceController extends Controller
 {
     public function recordAttendance(Request $request)
     {
-        $attendanceReason = $request->input('attendance_reason');
         $userId = Auth::id();
-        $currentDateTime = now();
         $newest_record = Time::where('user_id', $userId)
+                            ->where('end_at', null)
                             ->orderBy('created_at', 'desc')
                             ->first();
 
-        if (!$newest_record || $newest_record->end_at !== null) {
-            Time::create([
-                'user_id' => $userId,
-                'start_at' => $currentDateTime,
-                'attendance_status' => 1
-            ]);
-            return view('dashboard')->with('success', '出勤登録されました。');
-        }
-
-        if ($newest_record->end_at === null) {
+        if ($newest_record !== null) {
             return view('dashboard')->with('error', '出勤済みです。');
         }
-        Time::insert([
+
+        $attendanceReason = $request->input('attendance_reason');
+        var_dump($attendanceReason);
+        Time::create([
+            'user_id' => $userId,
+            'start_at' => now(),
             'reason' => $attendanceReason,
         ]);
+        return view('dashboard')->with('success', '出勤登録されました。');
+
     }
 
     public function recordLeave()
@@ -42,17 +39,13 @@ class AttendanceController extends Controller
         $currentDateTime = now();
 
         $newest_record = Time::where('user_id', $userId)
+                            ->where('end_at', null)
                             ->orderBy('created_at', 'desc')
                             ->first();
 
-        if ($newest_record && $newest_record->end_at === null) {
+        if ($newest_record !== null) {
         // 退勤ボタンを押すと、セッションから出勤状態を削除       
-        Time::where([ 
-            'user_id' => $userId,
-            'attendance_status' => 1
-        ])->orderBy(
-            'start_at', 'desc'
-        )->limit(1)->update([
+            $newest_record->update([
             'end_at' => $currentDateTime,
             'attendance_status' => 0
         ]);

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Time;
+use App\Models\Report;
 
 class TimeController extends Controller
 {
@@ -16,6 +17,13 @@ public function edit($user_id)
     // 例: 特定のデータを取得する方法
     //$time = Time::find($user_id); // $id は編集したいデータのIDです
     $times = Time::where('user_id', $user_id)->get();
+    $reports = Report::select('content')->where('user_id', $user_id)->get();
+
+    foreach ($times as $index => $time) {
+        if (isset($reports[$index])) {
+            $time['content'] = $reports[$index]->content;
+        }
+    }
 
     return view('edit', compact('times'));
 }

@@ -11,21 +11,21 @@
                     <div>
                             <!-- 出勤ボタン -->
                             
-                                @isset ($error)
+                                <!-- @isset ($error)
                                 <p>{{$error}}</p>
                                 @endisset
 
                                 @isset ($success)
                                 <p>{{$success}}</p>
-                                @endisset
-                            <div class="bottons">    
+                                @endisset -->
+                            <!-- <div class="bottons">    
                                 <div class="botton1">
                                     <button type="button" onclick="location.href='{{ route('Attendance.recordAttendance') }}'" method="POST" id = botton_font>出勤登録する</button>
                                 </div>    
                                 <div class="botton1">
                                     <button type="button" onclick="location.href='{{ route('Attendance.recordLeave') }}'" method="POST" id = botton_font>退勤登録する</button>
                                 </div>  
-                            </div>
+                            </div> -->
                             <h1 id="dayly_title">管理者用日報登録</h1>
                             <div>
                                 <div>                        
@@ -63,9 +63,7 @@
                                     </div>
                                     <input type="submit" value="登録">
                                     <a href="{{ route('time.edit', $user->id) }}" class="btn btn-primary">編集</a>
-
                                 </form>
-                                
                             </div>
                     </div>
                 </div>

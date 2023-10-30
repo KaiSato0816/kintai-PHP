@@ -11,12 +11,12 @@ use App\Http\Controllers\TimeController;
 
 
 Route::get('/edit/{id}', [TimeController::class, 'edit'])->name('time.edit');
-Route::get('/update/{id}', [TimeController::class, 'update'])->name('update.time');
+Route::put('/update/{id}', [TimeController::class, 'update'])->name('update.time');
 Route::get('/admin/csv-download/{id}', [CsvDownloadController::class, 'downloadCsv'])->name('downloadCsv');
 Route::get('/admin_dashboard', [AdminController::class, 'index'])->name('Admin.index');
-Route::get('/dashboard/recordAttendance', [AttendanceController::class, 'recordAttendance'])->name('Attendance.recordAttendance');
-Route::put('/dashboard/recordAttendance', [AttendanceController::class, 'recordAttendance'])->name('Attendance.recordAttendance');
-Route::get('/record-leave', [AttendanceController::class, 'recordLeave'])->name('Attendance.recordLeave');
+Route::get('/dashboard/recordAttendance', [AttendanceController::class, 'recordAttendance']);
+Route::post('/dashboard/recordAttendance', [AttendanceController::class, 'recordAttendance'])->name('Attendance.recordAttendance');
+Route::get('/record-leave', [AttendanceController::class, 'recordLeave']);
 Route::put('/record-leave', [AttendanceController::class, 'recordLeave'])->name('Attendance.recordLeave');
 Route::get('/report', [ReportController::class, 'create']);
 Route::post('/report', [ReportController::class, 'store']);

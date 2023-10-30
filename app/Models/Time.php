@@ -11,7 +11,5 @@ class Time extends Model
     use HasFactory;
 
     protected $table = 'times';
-    protected $fillable = ['user_id', 'start_at', 'attendance_status'];
-
-    
+    protected $fillable = ['user_id', 'start_at', 'end_at', 'reason'];
 }

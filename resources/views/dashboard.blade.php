@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Dashboard') }}
+            {{ __('勤怠連絡用フォーム') }}
         </h2>
     </x-slot>
     <div class="py-12">
@@ -18,29 +18,23 @@
                             @isset ($success)
                             <p>{{$success}}</p>
                             @endisset
-                            <div class="bottons">
-                                <div class="botton1">
-                                    <button type="button" onclick="location.href='{{ route('Attendance.recordAttendance') }}'" method="POST" id = botton_font>出勤登録する</button>
-                                </div>
-                                <div class="botton1">
-                                    <!-- 退勤ボタン -->
-                                    <button type="button" onclick="location.href='{{ route('Attendance.recordLeave') }}'" method="POST" id = botton_font>退勤登録する</button>                        
-                                </div>
-                            </div>
-                            <h1 id="dayly_title">日報登録</h1>
                             <form action="{{ route('Attendance.recordAttendance') }}" method="POST">
                                 @csrf
-                                <label for="attendance_reason">出勤理由：</label>
+                                <label for="attendance_reason"><p>出勤前①：出勤状態を登録する。</p></label>
                                 <div class="text_color">
                                     <select name="attendance_reason" id="attendance_reason">
+                                        <option value="0">通常勤務</option>
+                                        <option value="1">遅刻</option>
+                                    </select>
                                 </div>
-                                    <option value="0">通常勤務</option>
-                                    <option value="1">遅刻</option>
-                                </select>
+                                <p>出勤前②：出勤登録をする。</p>
+                                <button type="submit" class="botton_font" id="botton_font">出勤登録する</button>
                             </form>
+                            <p>退勤前③：日報登録をする。</p>        
                             <form action="{{ route('report.create') }}" method="post">
                                 <input type='hidden' name='user_id' value="{{Auth::user()->id}}">
                             @csrf
+                                <p>退勤前④：日報登録をする（日付、タイトル、内容の入力）</p>
                                 <label for="date">日付:</label>
                             <div class="text_color">
                                 <input type="date" id="date" name="date" required><br><br>
@@ -60,9 +54,10 @@
                                 <div class="text_color">
                                     <textarea id="content" name="content" rows="8" cols="100" required></textarea><br><br>
                                 </div>
-                            <div class="text_color2">
-                                <input type="submit" value="登録">
-                            </div>
+                            <div class="botton1">
+                                <!-- 退勤ボタン -->
+                                <p></p>
+                                <input type="submit" value="退勤登録をする"  class="botton_font" id = "botton_font"></input>                        
                             </div>
                             </form>
                         </body>
@@ -84,3 +79,21 @@
     
     @vite(['resources/js/calendar.js'])
 </x-app-layout>
+@vite(['resources/js/calendar.js'])
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const contentTextArea = document.getElementById('content'); // 日報内容のテキストエリア
+        const leaveButton = document.getElementById('botton_font'); // 退勤ボタンの要素
+        
+        leaveButton.disabled = true; // 退勤ボタンを初期状態で無効化
+
+        contentTextArea.addEventListener('input', function() {
+            if (contentTextArea.value.trim() !== '') {
+                leaveButton.disabled = false; // 日報内容が入力されたら退勤ボタンを有効化
+            } else {
+                leaveButton.disabled = true; // 日報内容が空の場合は退勤ボタンを無効化
+            }
+        });
+    });
+</script>
