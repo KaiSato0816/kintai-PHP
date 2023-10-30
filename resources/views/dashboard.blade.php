@@ -50,7 +50,7 @@
                                 </div>
                             </div>
                                 <div class="text_color">
-                                    <textarea id="content" name="content" rows="8" cols="50" required></textarea><br><br>
+                                    <textarea id="content" name="content" rows="8" cols="40" required></textarea><br><br>
                                 </div>
                             <div class="botton1">
                                 <!-- 退勤ボタン -->

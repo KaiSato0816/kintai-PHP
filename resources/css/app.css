@@ -78,3 +78,50 @@ body{
     color: white;
     font-size: 20px;
 }
+/* フォーム全体のスタイル */
+.time-form {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+/* 各フォーム要素のスタイル */
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* ラベルのスタイル */
+.form-group label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* テキスト入力のスタイル */
+.form-group input[type="text"],
+.form-group p {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* 更新ボタンのスタイル */
+.submit-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    body{
+        width: 100%;
+    }
+    .text_color{
+        width: 50px;
+    }
+}
