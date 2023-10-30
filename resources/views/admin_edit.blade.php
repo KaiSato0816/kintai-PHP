@@ -31,7 +31,7 @@
                                 <div>                        
                                     <form action="{{ route('Attendance.recordAttendance') }}" method="POST">
                                         @csrf
-                                        <label for="attendance_reason">①：出勤理由：</label>
+                                        <label for="attendance_reason">①：出勤理由</label>
                                         <div class="text_color">
                                             <select name="attendance_reason" id="attendance_reason">
                                                 <option value="0">通常勤務</option>
@@ -45,17 +45,17 @@
                                         <div>
                                             <input type='hidden' name='user_id' value="{{Auth::user()->id}}">
                                             @csrf
-                                            <label for="date">②日付:</label>
+                                            <label for="date">②:日付</label>
                                             <div class="text_color">
                                                 <input type="date" id="date" name="date" required><br><br>
                                             </div>  
-                                            <label for="title">③タイトル:</label>
+                                            <label for="title">③:タイトル:</label>
                                             <div class="text_color">
                                                 <input type="text" id="title" name="title" required><br><br>
                                             </div>
                                         </div>
                                         <div class="naiyou">
-                                            <label for="content">④内容:</label><br>
+                                            <label for="content">④:内容:</label><br>
                                             <div class="text_color">
                                                 <textarea id="content" name="content" rows="8" cols="100" required></textarea><br><br>
                                             </div>

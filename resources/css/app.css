@@ -34,12 +34,14 @@
 .text_color{
     color: black;
     font-weight: bold;
+    padding-bottom: 15px;
 }
 .text_color2{
     color: white;
 }
 #dayly_title{
     font-size: 30px;
+    padding-bottom: 20px;
 }
 .botton_font{
     font-size: 30px;
