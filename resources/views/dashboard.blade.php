@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Dashboard') }}
+            {{ __('出勤・退勤登録フォーム') }}
         </h2>
     </x-slot>
     <div class="py-12">
@@ -20,26 +20,25 @@
                             @endisset
                             <form action="{{ route('Attendance.recordAttendance') }}" method="POST">
                                 @csrf
-                                <label for="attendance_reason">出勤理由：</label>
+                                <label for="attendance_reason"><p class="font1">①出勤理由：</p></label>
                                 <div class="text_color">
                                     <select name="attendance_reason" id="attendance_reason">
                                         <option value="0">通常勤務</option>
                                         <option value="1">遅刻</option>
                                     </select>
                                 </div>
-                                <button type="submit" class="botton_font">出勤登録する</button>
+                                <p class="explain">②出勤ボタンで出勤登録</p>
+                                    <button type="submit" class="botton_font"><p id="botton_font">出勤登録する</p></button>
                             </form>
-                            <h1 id="dayly_title">日報登録</h1>
-                            
                             <form action="{{ route('report.create') }}" method="post">
                                 <input type='hidden' name='user_id' value="{{Auth::user()->id}}">
                             @csrf
-                                <label for="date">日付:</label>
+                                <label for="date"><p class="font1">③日付:</p></label>
                             <div class="text_color">
                                 <input type="date" id="date" name="date" required><br><br>
                             </div>
                             <div class="text_color2">   
-                                <label for="title">タイトル:</label>
+                                <label for="title"><p class="font1">④タイトル:</p></label>
                             </div>
                                 <div class="text_color">
                                     <input type="text" id="title" name="title" required><br><br>
@@ -47,11 +46,11 @@
                             <div class="naiyou">
                             <div class="text_color2">
                                 <div class="naiyou"> 
-                                    <label for="content">内容:</label><br>
+                                    <label for="content"><p class="font1">⑤内容:</p></label>
                                 </div>
                             </div>
                                 <div class="text_color">
-                                    <textarea id="content" name="content" rows="8" cols="100" required></textarea><br><br>
+                                    <textarea id="content" name="content" rows="8" cols="50" required></textarea><br><br>
                                 </div>
                             <div class="botton1">
                                 <!-- 退勤ボタン -->
