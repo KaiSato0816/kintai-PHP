@@ -1,3 +1,23 @@
+**以下についてはローカルにて環境構築をした際を想定して記述しております。**
+
+**機能一覧**
+1.新規登録（http://127.0.0.1:8000/register）
+2.ログイン（ローカル：http://127.0.0.1:8000/login）
+3.一般ユーザー用画面
+4.一般ユーザー用機能
+　*・出退勤登録*
+　*・日報登録*
+　*・カレンダー確認*
+　*・カレンダーに出退勤時間の自動登録*
+　*・ユーザー編集*
+5.管理者用画面（管理者用画面はuserテーブルのadminカラムが1の場合のみ自動的にログインします。）
+　*・日報登録*
+　*・カレンダー確認*
+　*・一般ユーザーの出退勤時間の編集*
+　*・一般ユーザーの登録した日報の確認（編集はできない。）*
+
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
